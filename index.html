@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ka" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloom 25 • Luxury Brooklyn Floral Atelier | 25th Ave NYC</title>
+  <meta name="description" content="Luxury flower shop boutique located at 25th Ave, Brooklyn, New York. Handcrafted artisanal bouquets, same-day 2-hour express delivery in Brooklyn & NYC." />
+  <meta name="keywords" content="flower shop brooklyn, 25th ave flowers, luxury bouquets nyc, flower delivery brooklyn 11214, ყვავილების მაღაზია ბრუკლინში" />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Bloom 25 • Brooklyn Luxury Floral Studio" />
+  <meta property="og:description" content="Order exquisite fresh roses, peonies, and custom arrangements on 25th Ave, Brooklyn NY." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- React 18 & ReactDOM CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  
+  <!-- Babel Standalone for JSX compilation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <!-- Root Mounting Container -->
+  <div id="root"></div>
+
+  <!-- Load Component Scripts -->
+  <script type="text/babel" src="./src/components/Header.js"></script>
+  <script type="text/babel" src="./src/components/Hero.js"></script>
+  <script type="text/babel" src="./src/components/BentoGrid.js"></script>
+  <script type="text/babel" src="./src/components/Catalog.js"></script>
+  <script type="text/babel" src="./src/components/ProductModal.js"></script>
+  <script type="text/babel" src="./src/components/BouquetBuilder.js"></script>
+  <script type="text/babel" src="./src/components/CartDrawer.js"></script>
+  <script type="text/babel" src="./src/components/AdminModal.js"></script>
+  <script type="text/babel" src="./src/components/OrderReceiptModal.js"></script>
+  <script type="text/babel" src="./src/components/Footer.js"></script>
+  <script type="text/babel" src="./src/app.js"></script>
+
+  <!-- Mount React App -->
+  <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<window.App />);
+  </script>
+</body>
+</html>
