@@ -1386,15 +1386,19 @@ h4 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
   background-image:
     linear-gradient(90deg, rgba(29, 19, 13, 0.88) 0%, rgba(49, 31, 22, 0.68) 39%, rgba(49, 31, 22, 0.12) 70%),
     url('../images/shop-hero-bouquet.png');
-  background-position: center;
+  background-position: right center;
   background-size: cover;
 }
 
 .shop-page-hero::before { display: none; }
-.shop-page-hero .container { position: relative; z-index: 1; }
+.shop-page-hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
 .shop-hero-copy {
-  max-width: 450px;
-  padding: 12px 0 14px 24px;
+  max-width: 410px;
+  padding: 12px 0 14px 18px;
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 .shop-hero-kicker {
@@ -1433,7 +1437,7 @@ h4 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
       linear-gradient(90deg, rgba(29, 19, 13, 0.9) 0%, rgba(49, 31, 22, 0.7) 56%, rgba(49, 31, 22, 0.2) 100%),
       url('../images/shop-hero-bouquet.png');
   }
-  .shop-hero-copy { max-width: 320px; padding-left: 18px; }
+  .shop-hero-copy { max-width: 300px; padding-left: 14px; }
   .shop-page-hero h1 { font-size: clamp(3.2rem, 13.5vw, 4.3rem); }
 }
 
