@@ -14,10 +14,10 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts supporting Georgian & Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
@@ -43,8 +43,7 @@
       --border-gold: rgba(212, 175, 55, 0.3);
       
       --font-heading: 'Cinzel', serif;
-      --font-editorial: 'Cormorant Garamond', serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Noto Sans Georgian', 'Plus Jakarta Sans', sans-serif;
       
       --radius-sm: 8px;
       --radius-md: 16px;
@@ -73,7 +72,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg-main); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
 
-    h1, h2, h3, .font-heading { font-family: var(--font-heading); letter-spacing: 0.02em; }
+    h1, h2, h3, .font-heading { font-family: var(--font-heading), 'Noto Sans Georgian', serif; letter-spacing: 0.02em; }
     .gold-gradient-text { background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
     .btn-primary {
@@ -167,7 +166,7 @@
         </div>
         <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 700;">
           <span id="hero-title1">ექსკლუზიური ყვავილების</span> <br />
-          <span id="hero-title2" class="gold-gradient-text" style="font-style: italic; font-family: var(--font-editorial);">ატელიე ბრუკლინში</span>
+          <span id="hero-title2" class="gold-gradient-text" style="font-style: italic;">ატელიე ბრუკლინში</span>
         </h1>
         <p id="hero-desc" style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 36px;">
           პრემიუმ ხარისხის ახალი ყვავილები, ავტორული თაიგულები და სწრაფი მიწოდება ნიუ-იორკში. შექმნილია სიყვარულით 25-ე ავენიუზე.
@@ -235,6 +234,6 @@
   <div id="receipt-modal-container"></div>
 
   <!-- APPLICATION JAVASCRIPT -->
-  <script src="./src/app.js"></script>
+  <script src="./src/app.js" charset="utf-8"></script>
 </body>
 </html>
