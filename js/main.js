@@ -218,13 +218,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="product-img-wrap">
           ${p.badge ? `<div class="product-badge"><span class="tag tag-${p.badgeType || 'cream'}">${p.badge}</span></div>` : ''}
           <button class="product-wishlist ${WishlistStore.has(p.id) ? 'active' : ''}" data-id="${p.id}" aria-label="Add to wishlist">
-            ${WishlistStore.has(p.id) ? '❤️' : '🤍'}
+            ${WishlistStore.has(p.id) ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="#C96B7A" stroke="#C96B7A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>' : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>'}
           </button>
           <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy"
                onerror="this.src='images/roses.jpg'">
           <div class="product-actions">
             <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="${p.id}">
-              🛒 Add to Cart
+              Add to Cart
             </button>
           </div>
         </div>
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="product-price">$${p.price}</span>
               ${p.oldPrice ? `<span class="product-price-old">$${p.oldPrice}</span>` : ''}
             </div>
-            <div class="product-stars">${'★'.repeat(p.stars)}${'☆'.repeat(5 - p.stars)}</div>
+            <div class="product-stars">${Array.from({length: p.stars}, () => '<svg width="12" height="12" viewBox="0 0 24 24" fill="#C9A96E" stroke="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>').join('') + Array.from({length: 5 - p.stars}, () => '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>').join('')}</div>
           </div>
         </div>
       </div>`).join('');
@@ -247,9 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const id = btn.dataset.id;
         const added = WishlistStore.toggle(id);
-        btn.innerHTML = added ? '❤️' : '🤍';
+        btn.innerHTML = added
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="#C96B7A" stroke="#C96B7A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
         btn.classList.toggle('active', added);
-        showToast(added ? 'Added to wishlist 🌸' : 'Removed from wishlist');
+        showToast(added ? 'Added to wishlist' : 'Removed from wishlist');
       });
     });
 
