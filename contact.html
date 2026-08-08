@@ -26,8 +26,8 @@
     </ul>
     <div class="nav-actions">
       <a href="shop.html" class="btn btn-secondary btn-sm">Shop Flowers</a>
-      <button class="cart-btn">🛒<span class="cart-badge" style="display:none">0</span></button>
-      <button class="nav-hamburger"><span></span><span></span><span></span></button>
+      <button class="cart-btn" aria-label="Shopping cart">🛒<span class="cart-badge" style="display:none">0</span></button>
+      <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -35,7 +35,7 @@
 <div class="mobile-menu">
   <div class="mobile-menu-overlay"></div>
   <div class="mobile-menu-panel">
-    <button class="mobile-menu-close">✕</button>
+    <button class="mobile-menu-close" aria-label="Close menu">✕</button>
     <ul class="mobile-nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="shop.html">Shop</a></li>
@@ -47,13 +47,14 @@
 
 <div class="cart-overlay"></div>
 <div class="cart-sidebar">
-  <div class="cart-header"><h2 class="cart-title">Your Cart</h2><button class="cart-close">✕</button></div>
+  <div class="cart-header"><h2 class="cart-title">Your Cart</h2><button class="cart-close" aria-label="Close shopping cart">✕</button></div>
   <div class="cart-items"></div>
   <div class="cart-footer">
     <div class="cart-total-row"><span>Subtotal</span><span class="cart-subtotal">$0</span></div>
     <div class="cart-total-row"><span>Delivery</span><span class="cart-delivery">$15</span></div>
     <div class="cart-total-row final"><span>Total</span><span class="cart-total">$0</span></div>
-    <button class="btn btn-rose btn-lg cart-checkout">Checkout — Order by Phone</button>
+    <p class="cart-free-delivery-note" aria-live="polite">Free Brooklyn delivery on orders over $100.</p>
+    <a href="tel:+17185550256" class="btn btn-rose btn-lg cart-checkout">📞 Order by Phone</a>
   </div>
 </div>
 
@@ -131,7 +132,7 @@
         <div class="contact-form-card">
           <h2 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--dark);margin-bottom:8px;">Send a Message</h2>
           <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:28px;">For custom orders, event inquiries, or just to say hello 🌸</p>
-          <form class="contact-form" novalidate>
+          <form class="contact-form">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="c-name">Your Name *</label>
@@ -219,6 +220,11 @@
     </div>
   </div>
 </footer>
+
+<div class="mobile-order-bar" aria-label="Quick order actions">
+  <a href="tel:+17185550256" class="btn btn-secondary">📞 Call to Order</a>
+  <a href="shop.html" class="btn btn-primary">Shop Flowers</a>
+</div>
 
 <script src="data/products.js"></script>
 <script src="js/main.js"></script>

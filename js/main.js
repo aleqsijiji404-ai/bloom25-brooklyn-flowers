@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update totals
     const subtotal = CartStore.getTotal();
-    const delivery = subtotal > 0 ? 15 : 0;
+    const delivery = subtotal === 0 ? 0 : (subtotal >= 100 ? 0 : 15);
     const total = subtotal + delivery;
     const subtotalEl = document.querySelector('.cart-subtotal');
     const deliveryEl = document.querySelector('.cart-delivery');
@@ -149,6 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subtotalEl) subtotalEl.textContent = `$${subtotal}`;
     if (deliveryEl) deliveryEl.textContent = delivery > 0 ? `$${delivery}` : 'Free';
     if (totalEl) totalEl.textContent = `$${total}`;
+    const deliveryNoteEl = document.querySelector('.cart-free-delivery-note');
+    if (deliveryNoteEl) {
+      if (subtotal === 0) {
+        deliveryNoteEl.textContent = 'Free Brooklyn delivery on orders over $100.';
+      } else if (subtotal >= 100) {
+        deliveryNoteEl.textContent = 'You unlocked free Brooklyn delivery 🌸';
+      } else {
+        deliveryNoteEl.textContent = `Add $${100 - subtotal} more for free Brooklyn delivery.`;
+      }
+    }
 
     // Qty controls
     cartItems.querySelectorAll('.qty-btn').forEach(btn => {
@@ -174,13 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Checkout button
   const checkoutBtn = document.querySelector('.cart-checkout');
   if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
+    checkoutBtn.addEventListener('click', e => {
       if (CartStore.getCount() === 0) {
+        e.preventDefault();
         showToast('Your cart is empty!', 'error');
         return;
       }
-      showToast('Thank you! We\'ll contact you shortly to confirm your order. 🌸');
-      setTimeout(() => { CartStore.clear(); renderCart(); }, 1500);
+      showToast('Opening your phone app to confirm the order 🌸');
     });
   }
 
@@ -203,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) {
       container = document.createElement('div');
       container.className = 'toast-container';
+      container.setAttribute('role', 'status');
+      container.setAttribute('aria-live', 'polite');
       document.body.appendChild(container);
     }
     const toast = document.createElement('div');
@@ -226,14 +238,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-card reveal" data-id="${p.id}">
         <div class="product-img-wrap">
           ${p.badge ? `<div class="product-badge"><span class="tag tag-${p.badgeType || 'cream'}">${p.badge}</span></div>` : ''}
-          <button class="product-wishlist ${WishlistStore.has(p.id) ? 'active' : ''}" data-id="${p.id}" aria-label="Add to wishlist">
+          <button class="product-wishlist ${WishlistStore.has(p.id) ? 'active' : ''}" data-id="${p.id}" aria-label="${WishlistStore.has(p.id) ? 'Remove from wishlist' : 'Add to wishlist'}">
             ${WishlistStore.has(p.id) ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="#C96B7A" stroke="#C96B7A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>' : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>'}
           </button>
           <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy"
                onerror="this.src='images/roses.jpg'">
           <div class="product-actions">
             <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="${p.id}">
-              Add to Cart
+              🛒 Add to Cart
             </button>
           </div>
         </div>
@@ -260,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="#C96B7A" stroke="#C96B7A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>'
           : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
         btn.classList.toggle('active', added);
+        btn.setAttribute('aria-label', added ? 'Remove from wishlist' : 'Add to wishlist');
         showToast(added ? 'Added to wishlist' : 'Removed from wishlist');
       });
     });
@@ -328,11 +341,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', e => {
       e.preventDefault();
-      const email = newsletterForm.querySelector('input').value;
-      if (email) {
-        showToast('Thank you for subscribing! 🌸');
-        newsletterForm.reset();
+      const emailInput = newsletterForm.querySelector('input');
+      const email = emailInput.value.trim();
+      if (!emailInput.checkValidity() || !email) {
+        emailInput.setAttribute('aria-invalid', 'true');
+        showToast('Please enter a valid email address.', 'error');
+        emailInput.focus();
+        return;
       }
+      emailInput.removeAttribute('aria-invalid');
+      showToast('Thanks — you are on the Bloom & Co list 🌸');
+      newsletterForm.reset();
     });
   }
 
@@ -341,8 +360,29 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', e => {
       e.preventDefault();
-      showToast('Message sent! We\'ll get back to you soon. 🌸');
-      contactForm.reset();
+      const fields = [
+        contactForm.querySelector('#c-name'),
+        contactForm.querySelector('#c-email'),
+        contactForm.querySelector('#c-message')
+      ].filter(Boolean);
+      const invalidField = fields.find(field => !field.value.trim() || !field.checkValidity());
+      fields.forEach(field => field.toggleAttribute('aria-invalid', field === invalidField));
+      if (invalidField) {
+        showToast('Please complete the highlighted fields.', 'error');
+        invalidField.focus();
+        return;
+      }
+
+      const subject = contactForm.querySelector('#c-subject')?.value || 'Bloom & Co inquiry';
+      const body = [
+        `Name: ${contactForm.querySelector('#c-name').value.trim()}`,
+        `Email: ${contactForm.querySelector('#c-email').value.trim()}`,
+        `Phone: ${contactForm.querySelector('#c-phone')?.value.trim() || 'Not provided'}`,
+        '',
+        contactForm.querySelector('#c-message').value.trim()
+      ].join('\n');
+      showToast('Opening your email app… 🌸');
+      window.location.href = `mailto:hello@bloomandco.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
 
