@@ -361,7 +361,8 @@ h4 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
   background-size: cover;
   background-position: center 30%;
   transform: scale(1.05);
-  transition: transform 8s ease;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
 }
 
 .hero-bg::after {
