@@ -1377,14 +1377,14 @@ h4 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
 /* Shop collection hero: photograph is composed with the bouquet at right
    and a calm left-hand area for the collection copy. */
 .shop-page-hero {
-  min-height: 390px;
+  min-height: clamp(390px, 40vw, 510px);
   display: flex;
   align-items: center;
-  padding: 128px 0 64px;
+  padding: 104px 0 52px;
   text-align: left;
   color: var(--white);
   background-image:
-    linear-gradient(90deg, rgba(35, 24, 17, 0.86) 0%, rgba(48, 31, 22, 0.66) 38%, rgba(48, 31, 22, 0.14) 72%),
+    linear-gradient(90deg, rgba(29, 19, 13, 0.88) 0%, rgba(49, 31, 22, 0.68) 39%, rgba(49, 31, 22, 0.12) 70%),
     url('../images/shop-hero-bouquet.png');
   background-position: center;
   background-size: cover;
@@ -1392,20 +1392,49 @@ h4 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
 
 .shop-page-hero::before { display: none; }
 .shop-page-hero .container { position: relative; z-index: 1; }
-.shop-page-hero .breadcrumb { justify-content: flex-start; color: rgba(255, 255, 255, 0.76); }
-.shop-page-hero .breadcrumb a { color: inherit; }
-.shop-page-hero .breadcrumb-sep { color: rgba(255, 255, 255, 0.54); }
-.shop-page-hero .section-eyebrow { color: #f7b8c3; }
+.shop-hero-copy {
+  max-width: 450px;
+  padding: 12px 0 14px 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+.shop-hero-kicker {
+  display: block;
+  margin-bottom: 18px;
+  color: #f7bec7;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
 .shop-page-hero h1 {
-  margin-top: 12px;
   color: var(--white);
   font-family: var(--font-serif);
+  font-size: clamp(3.35rem, 5.25vw, 5.4rem);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
 }
+.shop-page-hero h1 em { font-weight: 300; }
 .shop-page-hero p {
-  max-width: 470px;
-  margin-top: 12px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 1rem;
+  max-width: 330px;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .shop-page-hero {
+    min-height: 410px;
+    padding: 88px 0 38px;
+    background-position: 61% center;
+    background-image:
+      linear-gradient(90deg, rgba(29, 19, 13, 0.9) 0%, rgba(49, 31, 22, 0.7) 56%, rgba(49, 31, 22, 0.2) 100%),
+      url('../images/shop-hero-bouquet.png');
+  }
+  .shop-hero-copy { max-width: 320px; padding-left: 18px; }
+  .shop-page-hero h1 { font-size: clamp(3.2rem, 13.5vw, 4.3rem); }
 }
 
 /* ===================================================
