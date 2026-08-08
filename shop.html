@@ -89,6 +89,13 @@
 <div class="shop-filters">
   <div class="container">
     <div class="filters-row">
+      <select class="sort-select" id="sort-select" aria-label="Sort flower collection">
+        <option value="default">Sort by: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A–Z</option>
+        <option value="newest">Newest First</option>
+      </select>
       <span class="filter-label">Filter:</span>
       <button class="filter-btn active" data-filter="all" data-type="occasion" id="filter-all">All</button>
       <button class="filter-btn" data-filter="Wedding" data-type="occasion">💍 Wedding</button>
@@ -102,13 +109,6 @@
       <button class="filter-btn" data-filter="Tulips" data-type="category">Tulips</button>
       <button class="filter-btn" data-filter="Lavender" data-type="category">Lavender</button>
       <div class="filter-divider"></div>
-      <select class="sort-select" id="sort-select">
-        <option value="default">Sort by: Featured</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name-asc">Name: A–Z</option>
-        <option value="newest">Newest First</option>
-      </select>
     </div>
   </div>
 </div>

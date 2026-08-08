@@ -1103,7 +1103,7 @@ h4 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
   font-size: 0.82rem;
   cursor: pointer;
   outline: none;
-  margin-left: auto;
+  flex: 0 0 auto;
 }
 
 .shop-results {
