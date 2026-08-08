@@ -62,9 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 300px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Fallback: after page fully loads, reveal any still-hidden elements
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 400);
+    // Second pass for dynamically added elements (product cards)
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 1200);
+  });
 
   // ---- Cart Sidebar ----
   const cartOverlay = document.querySelector('.cart-overlay');
@@ -182,11 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Initial badge ----
   CartStore.updateBadge();
 
-  // ---- Featured Products on Home Page ----
+  // ---- Featured Products on Home Page (runs after renderProducts is defined below) ----
   const featuredGrid = document.querySelector('.featured-products-grid');
-  if (featuredGrid) {
-    renderProducts(featuredGrid, ProductsStore.getFeatured().slice(0, 4));
-  }
+  // Will be populated after renderProducts definition
 
   // ---- Toast Notification ----
   window.showToast = function(msg, type = 'success') {
@@ -279,9 +288,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Re-run reveal observer
+    // Re-run reveal observer for newly added cards, then force-reveal after short delay
     container.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    setTimeout(() => {
+      container.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+    }, 300);
   };
+
+  // ---- Populate Featured Products (now that renderProducts is defined) ----
+  if (featuredGrid) {
+    renderProducts(featuredGrid, ProductsStore.getFeatured().slice(0, 4));
+  }
 
   // ---- Occasion Cards ----
   document.querySelectorAll('.bento-card[data-occasion]').forEach(card => {
