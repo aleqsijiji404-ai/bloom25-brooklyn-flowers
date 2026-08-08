@@ -1,239 +1,377 @@
 <!DOCTYPE html>
-<html lang="ka" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bloom 25 • Luxury Brooklyn Floral Atelier | 25th Ave NYC</title>
-  <meta name="description" content="Luxury flower shop boutique located at 25th Ave, Brooklyn, New York. Handcrafted artisanal bouquets, same-day 2-hour express delivery in Brooklyn & NYC." />
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Bloom 25 • Brooklyn Luxury Floral Studio" />
-  <meta property="og:description" content="Order fresh roses, peonies, and custom arrangements on 25th Ave, Brooklyn NY." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>" />
-
-  <!-- Google Fonts supporting Georgian & Serif -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom & Co — Fresh Flowers in Brooklyn, NY</title>
+  <meta name="description" content="Premium fresh flower arrangements delivered in Brooklyn, NY. Roses, peonies, sunflowers & more. Same-day delivery on 25th Ave.">
+  <meta property="og:title" content="Bloom & Co — Brooklyn's Finest Florist">
+  <meta property="og:description" content="Handcrafted floral arrangements for every occasion, delivered fresh to your door in Brooklyn.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* -------------------------------------------------------------
-       BLOOM 25 - BROOKLYN FLORAL ATELIER (2026 LUXURY INLINE CSS)
-       ------------------------------------------------------------- */
-    :root {
-      --bg-main: #0B0D10;
-      --bg-surface: #14171D;
-      --bg-card: rgba(26, 30, 38, 0.7);
-      --bg-card-hover: rgba(36, 42, 54, 0.85);
-      
-      --text-primary: #F8F9FA;
-      --text-secondary: #A0A9B6;
-      --text-muted: #6B7280;
-      
-      --accent-gold: #D4AF37;
-      --accent-gold-hover: #F3E5AB;
-      --accent-rose: #E89BA7;
-      --accent-emerald: #1B4D3E;
-      --accent-glow: rgba(212, 175, 55, 0.15);
-      
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-gold: rgba(212, 175, 55, 0.3);
-      
-      --font-heading: 'Cinzel', serif;
-      --font-body: 'Noto Sans Georgian', 'Plus Jakarta Sans', sans-serif;
-      
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-full: 9999px;
-      
-      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
-      --shadow-gold: 0 0 25px rgba(212, 175, 55, 0.25);
-      
-      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    [data-theme="light"] {
-      --bg-main: #FAF8F5;
-      --bg-surface: #FFFFFF;
-      --bg-card: rgba(255, 255, 255, 0.9);
-      --bg-card-hover: #FFFFFF;
-      --text-primary: #1C1917;
-      --text-secondary: #57534E;
-      --text-muted: #A8A29E;
-      --border-color: rgba(0, 0, 0, 0.08);
-      --border-gold: rgba(180, 140, 20, 0.4);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: var(--bg-main); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
-
-    h1, h2, h3, .font-heading { font-family: var(--font-heading), 'Noto Sans Georgian', serif; letter-spacing: 0.02em; }
-    .gold-gradient-text { background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-      color: #000; font-family: var(--font-body); font-weight: 700;
-      padding: 12px 24px; border-radius: var(--radius-full); border: none;
-      cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
-      transition: var(--transition); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); text-decoration: none;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5); }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05); color: var(--text-primary);
-      border: 1px solid var(--border-color); font-weight: 600;
-      padding: 12px 24px; border-radius: var(--radius-full); cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px; transition: var(--transition); text-decoration: none;
-    }
-    .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
-
-    .btn-admin {
-      background: rgba(232, 155, 167, 0.15); color: var(--accent-rose);
-      border: 1px solid rgba(232, 155, 167, 0.3); padding: 8px 16px;
-      border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; cursor: pointer;
-    }
-
-    .glass-panel { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: var(--radius-md); }
-    .glass-header { background: rgba(11, 13, 16, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); }
-
-    .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
-    .bento-item { border-radius: var(--radius-lg); overflow: hidden; position: relative; transition: var(--transition); }
-    .bento-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .bento-large { grid-column: span 8; min-height: 360px; }
-    .bento-medium { grid-column: span 4; min-height: 360px; }
-
-    @media (max-width: 992px) {
-      .bento-large, .bento-medium { grid-column: span 12; min-height: 280px; }
-    }
-
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
-    .product-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
-    .product-card:hover { border-color: var(--border-gold); transform: translateY(-6px); box-shadow: var(--shadow-gold); }
-    .product-card-img-container { position: relative; width: 100%; padding-top: 100%; overflow: hidden; background: #111; }
-    .product-card-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-    .product-card:hover .product-card-img { transform: scale(1.08); }
-
-    .badge-tag { position: absolute; top: 12px; left: 12px; background: rgba(11, 13, 16, 0.85); color: var(--accent-gold); border: 1px solid var(--border-gold); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; }
-
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-    .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); z-index: 1000; }
-    .drawer-content { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 460px; background: var(--bg-surface); border-left: 1px solid var(--border-color); z-index: 1001; display: flex; flex-direction: column; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="glass-header" style="position: sticky; top: 0; z-index: 100;">
-    <div style="background: linear-gradient(90deg, #1B4D3E 0%, #0D261F 50%, #1B4D3E 100%); color: #8FFFE1; font-size: 0.8rem; padding: 6px 16px; text-align: center; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
-      <span>🌸</span>
-      <span id="top-notice-text">ექსპრეს მიწოდება ბრუკლინში (25th Ave Studio) • 2 საათში</span>
-      <span style="background: rgba(255, 255, 255, 0.15); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem;">25th Ave, Brooklyn NY 11214</span>
+
+<!-- Page Loader -->
+<div class="page-loader" id="loader">
+  <div class="loader-logo">Bloom & Co</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">Bloom & Co</span>
+      <span class="nav-logo-tagline">Brooklyn's Finest Florist</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="shop.html" class="btn btn-secondary btn-sm">Order Now</a>
+      <button class="cart-btn" aria-label="Shopping cart">
+        🛒
+        <span class="cart-badge" style="display:none">0</span>
+      </button>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+</nav>
 
-    <div style="max-width: 1320px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-      <a href="#" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
-        <div style="width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #D4AF37 0%, #8C6F12 100%); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);">🌸</div>
-        <div>
-          <div style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em;">BLOOM 25</div>
-          <div style="font-size: 0.7rem; color: var(--accent-gold); letter-spacing: 0.25em; text-transform: uppercase; font-weight: 600;">Brooklyn • New York</div>
-        </div>
-      </a>
-
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <button id="btn-admin-toggle" class="btn-admin">⚙️ <span id="lbl-admin">მართვა</span></button>
-        <button id="btn-lang-toggle" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: var(--radius-full); padding: 6px 12px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">🇬🇪 KA</button>
-        <button id="btn-theme-toggle" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 50%; width: 38px; height: 38px; cursor: pointer;">🌙</button>
-        <button id="btn-cart-toggle" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; color: #000; padding: 8px 18px; border-radius: var(--radius-full); font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-          <span>🛒</span>
-          <span id="lbl-cart">კალათა</span>
-          <span id="cart-badge" style="background: #000; color: #FFF; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">0</span>
-        </button>
-      </div>
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu-panel">
+    <button class="mobile-menu-close">✕</button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:12px;">
+      <a href="shop.html" class="btn btn-primary">Shop Flowers</a>
+      <a href="admin.html" class="btn btn-secondary btn-sm">Admin Panel</a>
     </div>
-  </header>
+  </div>
+</div>
 
-  <!-- MAIN -->
-  <main>
-    <!-- HERO SECTION -->
-    <section style="position: relative; min-height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 80px 24px 60px; background: radial-gradient(circle at 50% 20%, rgba(27, 77, 62, 0.25) 0%, rgba(11, 13, 16, 0.95) 70%);">
-      <div style="max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
-        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: var(--radius-full); background: rgba(212, 175, 55, 0.12); border: 1px solid var(--border-gold); color: var(--accent-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 24px;">
-          📍 <span id="hero-loc">25-ე ავენიუ • ბრუკლინი, ნიუ-იორკი</span>
-        </div>
-        <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 700;">
-          <span id="hero-title1">ექსკლუზიური ყვავილების</span> <br />
-          <span id="hero-title2" class="gold-gradient-text" style="font-style: italic;">ატელიე ბრუკლინში</span>
-        </h1>
-        <p id="hero-desc" style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 36px;">
-          პრემიუმ ხარისხის ახალი ყვავილები, ავტორული თაიგულები და სწრაფი მიწოდება ნიუ-იორკში. შექმნილია სიყვარულით 25-ე ავენიუზე.
-        </p>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
-          <a href="#catalog" class="btn-primary">🌸 <span id="hero-btn1">თაიგულის არჩევა</span></a>
-          <a href="#bento" class="btn-secondary">🎨 <span id="hero-btn2">ინდივიდუალური აწყობა</span></a>
-        </div>
-      </div>
-    </section>
+<!-- Cart Overlay -->
+<div class="cart-overlay"></div>
+<div class="cart-sidebar">
+  <div class="cart-header">
+    <h2 class="cart-title">Your Cart</h2>
+    <button class="cart-close">✕</button>
+  </div>
+  <div class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Subtotal</span>
+      <span class="cart-subtotal">$0</span>
+    </div>
+    <div class="cart-total-row">
+      <span>Delivery (Brooklyn)</span>
+      <span class="cart-delivery">$15</span>
+    </div>
+    <div class="cart-total-row final">
+      <span>Total</span>
+      <span class="cart-total">$0</span>
+    </div>
+    <button class="btn btn-rose btn-lg cart-checkout">Checkout — Order by Phone</button>
+    <p style="font-size:0.75rem;text-align:center;color:var(--text-muted);margin-top:10px;">
+      We'll call to confirm your order and delivery details.
+    </p>
+  </div>
+</div>
 
-    <!-- BENTO GRID -->
-    <section id="bento" style="padding: 60px 24px; max-width: 1320px; margin: 0 auto;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <div style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;">2026 წლის ტრენდები</div>
-        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">რჩეული კოლექციები</h2>
-      </div>
-      <div class="bento-grid">
-        <div class="bento-item bento-large glass-panel bento-click" data-cat="Everyday Luxury" style="cursor: pointer; min-height: 340px; position: relative;">
-          <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(65%);" />
-          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,13,16,0.95) 0%, rgba(11,13,16,0.2) 60%); padding: 30px; display: flex; flex-direction: column; justify-content: flex-end;">
-            <span class="badge-tag" style="width: fit-content; margin-bottom: 10px;">🔥 2026 Trend</span>
-            <h3 style="font-size: 1.8rem; color: #FFF; margin-bottom: 6px;">Dopamine Blooms</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">კაშკაშა ყვავილების კომპოზიციები</p>
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Brooklyn, New York · Est. 2024</span>
+    </div>
+    <h1 class="hero-title">
+      Fresh <em>Flowers</em><br>
+      Delivered with Love
+    </h1>
+    <p class="hero-subtitle">
+      Handcrafted floral arrangements for every moment that matters.
+      Same-day delivery across Brooklyn — from our studio on 25th Ave.
+    </p>
+    <div class="hero-actions">
+      <a href="shop.html" class="btn btn-primary btn-lg">Shop Flowers</a>
+      <a href="contact.html" class="btn btn-ghost btn-lg">📞 Call Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- Delivery Info Banner -->
+<div style="background:var(--bark);color:white;padding:12px 0;text-align:center;font-size:0.82rem;letter-spacing:0.06em;">
+  🚚 &nbsp; FREE DELIVERY on orders over $100 &nbsp;·&nbsp; Same-day delivery in Brooklyn &nbsp;·&nbsp; 📍 25th Ave, Brooklyn, NY
+</div>
+
+<!-- Occasions Bento Grid -->
+<section class="occasions section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow reveal">Shop by Occasion</span>
+      <h2 class="section-title reveal reveal-delay-1">Every Moment Deserves Flowers</h2>
+      <p class="section-subtitle reveal reveal-delay-2">From intimate birthdays to grand weddings — we have the perfect arrangement for every occasion.</p>
+    </div>
+    <div class="bento-grid">
+      <!-- Large card -->
+      <div class="bento-card bento-card-lg reveal" data-occasion="Wedding">
+        <div class="bento-card-inner">
+          <img src="images/mixed.jpg" alt="Wedding flowers" class="bento-img">
+          <div class="bento-overlay">
+            <div class="bento-icon">💍</div>
+            <h3 class="bento-title">Weddings</h3>
+            <div class="bento-count">Bridal bouquets & arrangements</div>
           </div>
         </div>
-        <div class="bento-item bento-medium glass-panel bento-click" data-cat="Romance" style="cursor: pointer; min-height: 340px; position: relative;">
-          <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(65%);" />
-          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,13,16,0.95) 0%, rgba(11,13,16,0.1) 60%); padding: 24px; display: flex; flex-direction: column; justify-content: flex-end;">
-            <h3 style="font-size: 1.4rem; color: #FFF; margin-bottom: 4px;">პარიზული ვარდები</h3>
-            <p style="color: var(--text-secondary); font-size: 0.85rem;">მარადიული კლასიკა</p>
+      </div>
+      <!-- Small cards -->
+      <div class="bento-card reveal reveal-delay-1" data-occasion="Birthday">
+        <div class="bento-card-inner">
+          <img src="images/sunflowers.jpg" alt="Birthday flowers" class="bento-img">
+          <div class="bento-overlay">
+            <div class="bento-icon">🎂</div>
+            <h3 class="bento-title">Birthdays</h3>
+            <div class="bento-count">Bright & cheerful</div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- CATALOG -->
-    <section id="catalog" style="padding: 60px 24px 100px; max-width: 1320px; margin: 0 auto;">
-      <div style="text-align: center; margin-bottom: 32px;">
-        <div style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;">ჩვენი კოლექცია</div>
-        <h2 style="font-size: clamp(2rem, 4vw, 3rem);">აირჩიეთ იდეალური თაიგული</h2>
+      <div class="bento-card reveal reveal-delay-2" data-occasion="Romance">
+        <div class="bento-card-inner">
+          <img src="images/roses.jpg" alt="Romance flowers" class="bento-img">
+          <div class="bento-overlay">
+            <div class="bento-icon">❤️</div>
+            <h3 class="bento-title">Romance</h3>
+            <div class="bento-count">Roses & more</div>
+          </div>
+        </div>
       </div>
-
-      <!-- Categories Container -->
-      <div id="cat-tabs-container" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;">
-        <!-- Filled dynamically -->
+      <div class="bento-card reveal reveal-delay-1" data-occasion="Sympathy">
+        <div class="bento-card-inner">
+          <img src="images/lavender.jpg" alt="Sympathy flowers" class="bento-img">
+          <div class="bento-overlay">
+            <div class="bento-icon">🕊️</div>
+            <h3 class="bento-title">Sympathy</h3>
+            <div class="bento-count">Thoughtful condolences</div>
+          </div>
+        </div>
       </div>
-
-      <!-- Products Grid Container -->
-      <div id="products-grid-container" class="product-grid">
-        <!-- Filled dynamically -->
+      <div class="bento-card reveal reveal-delay-2" data-occasion="Birthday">
+        <div class="bento-card-inner">
+          <img src="images/tulips.jpg" alt="Spring flowers" class="bento-img">
+          <div class="bento-overlay">
+            <div class="bento-icon">🌷</div>
+            <h3 class="bento-title">Spring Picks</h3>
+            <div class="bento-count">Seasonal favorites</div>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer id="location" style="background: #07080A; border-top: 1px solid var(--border-color); padding: 60px 24px; text-align: center; color: var(--text-secondary);">
-    <h3 style="color: #FFF; margin-bottom: 8px;">BLOOM 25 FLORAL ATELIER</h3>
-    <p style="font-size: 0.85rem;">📍 25th Ave, Brooklyn, NY 11214 • Phone: +1 (718) 555-BLOOM</p>
-  </footer>
+<!-- Featured Products -->
+<section class="section" style="background:var(--cream);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow reveal">Our Collection</span>
+      <h2 class="section-title reveal reveal-delay-1">Featured Arrangements</h2>
+      <p class="section-subtitle reveal reveal-delay-2">Each bouquet is handcrafted with the freshest seasonal flowers, arranged by our expert florists.</p>
+    </div>
+    <div class="products-grid featured-products-grid">
+      <!-- Filled by JS -->
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <a href="shop.html" class="btn btn-secondary btn-lg">View All Flowers →</a>
+    </div>
+  </div>
+</section>
 
-  <!-- DYNAMIC MODAL / DRAWER CONTAINERS -->
-  <div id="cart-drawer-container"></div>
-  <div id="admin-modal-container"></div>
-  <div id="receipt-modal-container"></div>
+<!-- Why Choose Us -->
+<section class="why-us section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow reveal">Why Bloom & Co</span>
+      <h2 class="section-title reveal reveal-delay-1">Crafted with Care,<br>Delivered with Love</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🌿</div>
+        <h3 class="feature-title">Farm-Fresh Flowers</h3>
+        <p class="feature-desc">We source only the freshest flowers, delivered daily from trusted farms in the US and Colombia. Every stem is handpicked for quality.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🚀</div>
+        <h3 class="feature-title">Same-Day Delivery</h3>
+        <p class="feature-desc">Order by 2 PM for same-day delivery across Brooklyn. We deliver 7 days a week, including holidays, because love doesn't wait.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">✂️</div>
+        <h3 class="feature-title">Expert Florists</h3>
+        <p class="feature-desc">Our skilled florists craft each arrangement by hand with artistic precision and a personal touch that you simply won't find anywhere else.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">💝</div>
+        <h3 class="feature-title">Custom Orders</h3>
+        <p class="feature-desc">Have a specific vision? We love custom requests. Call us and we'll create a bespoke arrangement just for you.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">📍</div>
+        <h3 class="feature-title">Brooklyn-Based</h3>
+        <p class="feature-desc">Proudly local. We're rooted in the Brooklyn community on 25th Ave, serving our neighbors with love and fresh florals since 2024.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">♻️</div>
+        <h3 class="feature-title">Eco-Conscious</h3>
+        <p class="feature-desc">We use biodegradable packaging, locally-sourced greenery, and sustainable practices to keep our community and planet beautiful.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- APPLICATION JAVASCRIPT -->
-  <script src="./src/app.js" charset="utf-8"></script>
+<!-- Testimonials -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow reveal">Happy Customers</span>
+      <h2 class="section-title reveal reveal-delay-1">Love from Brooklyn</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">The most beautiful arrangement I've ever received! The flowers were so fresh and lasted over two weeks. Bloom & Co is my go-to for all occasions now.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-location">Park Slope, Brooklyn</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Ordered sunflowers for my mom's birthday and they arrived beautifully wrapped and so fresh! The delivery was right on time. Absolutely will order again.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">James K.</div>
+            <div class="testimonial-location">Bay Ridge, Brooklyn</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Used Bloom & Co for our wedding and couldn't be happier. The peony bouquet was absolutely stunning. Every guest complimented the flowers!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Amara & David</div>
+            <div class="testimonial-location">Williamsburg, Brooklyn</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <h2 class="serif">Stay in Bloom</h2>
+        <p>Get seasonal updates, exclusive offers & flower care tips.</p>
+      </div>
+      <form class="newsletter-form" novalidate>
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe 🌸</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo-name">Bloom & Co</span>
+        <span class="footer-logo-tag">Brooklyn's Finest Florist</span>
+        <p class="footer-desc">Handcrafted flower arrangements made with love in the heart of Brooklyn, New York. We believe every moment deserves a touch of beauty.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="social-btn" aria-label="Pinterest">📌</a>
+          <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Flowers</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="admin.html">Admin Panel</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Occasions</div>
+        <ul class="footer-links">
+          <li><a href="shop.html?occasion=Wedding">Weddings</a></li>
+          <li><a href="shop.html?occasion=Birthday">Birthdays</a></li>
+          <li><a href="shop.html?occasion=Romance">Romance</a></li>
+          <li><a href="shop.html?occasion=Sympathy">Sympathy</a></li>
+          <li><a href="shop.html">All Occasions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📍</span>
+          <span>25th Ave, Brooklyn,<br>New York, NY 11214</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">📞</span>
+          <span>(718) 555-BLOOM</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">✉️</span>
+          <span>hello@bloomandco.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">🕐</span>
+          <span>Mon–Sat: 8am–7pm<br>Sun: 9am–5pm</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Bloom & Co. All rights reserved.</span>
+      <span>Made with 🌸 in Brooklyn, NY</span>
+    </div>
+  </div>
+</footer>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
